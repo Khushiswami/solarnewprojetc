@@ -36,7 +36,7 @@ export default function WhyChoose() {
         variants={itemVariants}
       >
         Why choose{" "}
-        <span className="text-[#f6a235]">Gayatri Construction Company</span> for
+        <span className="text-[#000089]">Gayatri Construction Company</span> for
         your construction projects
       </motion.h2>
 
@@ -47,7 +47,7 @@ export default function WhyChoose() {
           className="flex items-start space-x-4"
           variants={itemVariants}
         >
-          <FaHardHat className="text-[#f6a235] text-3xl flex-shrink-0" />
+          <FaHardHat className="text-[#000089] text-3xl flex-shrink-0" />
           <div>
             <h3 className="text-xl font-semibold mb-1">Experienced Team</h3>
             <p className="text-gray-600">
@@ -62,7 +62,7 @@ export default function WhyChoose() {
           className="flex items-start space-x-4"
           variants={itemVariants}
         >
-          <FaBuilding className="text-[#f6a235] text-3xl flex-shrink-0" />
+          <FaBuilding className="text-[#000089] text-3xl flex-shrink-0" />
           <div>
             <h3 className="text-xl font-semibold mb-1">
               High-Quality Construction
@@ -79,7 +79,7 @@ export default function WhyChoose() {
           className="flex items-start space-x-4"
           variants={itemVariants}
         >
-          <FaTools className="text-[#f6a235] text-3xl flex-shrink-0" />
+          <FaTools className="text-[#000089] text-3xl flex-shrink-0" />
           <div>
             <h3 className="text-xl font-semibold mb-1">
               Professional Equipment
@@ -96,7 +96,7 @@ export default function WhyChoose() {
           className="flex items-start space-x-4"
           variants={itemVariants}
         >
-          <FaClock className="text-[#f6a235] text-3xl flex-shrink-0" />
+          <FaClock className="text-[#000089] text-3xl flex-shrink-0" />
           <div>
             <h3 className="text-xl font-semibold mb-1">
               On-Time Project Delivery
@@ -111,8 +111,8 @@ export default function WhyChoose() {
 
       {/* Button */}
       <motion.div className="text-center mt-12" variants={itemVariants}>
-        <button className="px-8 py-3 rounded-lg bg-[#f6a235] text-white font-medium hover:bg-[#c74c17] transition">
-          Learn More About Us
+        <button className="px-8 py-3 rounded-lg bg-[#000089] text-white font-medium hover:bg-[#000000] transition">
+          Explore Our Services
         </button>
       </motion.div>
     </motion.section>

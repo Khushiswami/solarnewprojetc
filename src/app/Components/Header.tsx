@@ -25,34 +25,34 @@ export default function Header() {
           <div className="hidden md:flex space-x-8">
             <Link
               href="/"
-              className="text-black hover:text-[#f6a235] font-medium text-[16px]"
+              className="text-black hover:text-[#000089] font-medium text-[16px]"
             >
               Home
             </Link>
             <Link
               href="/about"
-              className="text-black hover:text-[#f6a235] font-medium text-[16px]"
+              className="text-black hover:text-[#000089] font-medium text-[16px]"
             >
               About Us
             </Link>
             <Link
               href="/service"
-              className="text-black hover:text-[#f6a235] font-medium text-[16px]"
+              className="text-black hover:text-[#000089] font-medium text-[16px]"
             >
               Services
             </Link>
             <Link
-              href="/contact"
-              className="text-black hover:text-[#f6a235] font-medium text-[16px]"
+              href="/calc"
+              className="text-black hover:text-[#000089] font-medium text-[16px]"
             >
-              Contact
+              Calculator
             </Link>
           </div>
 
           <div className="hidden md:flex">
             <Link
-              href="/contact"
-              className="bg-[#f6a235] hover:bg-[#c74c17] text-white px-4 py-2 rounded-md font-medium transition"
+              href="/calculator"
+              className="bg-[#000089] hover:bg-[#000000] text-white px-4 py-2 rounded-md font-medium transition"
             >
               Contact
             </Link>
@@ -61,7 +61,7 @@ export default function Header() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="text-black hover:text-[#f6a235] focus:outline-none"
+              className="text-black hover:text-[#000089] focus:outline-none"
             >
               <svg
                 className="h-6 w-6"
@@ -96,35 +96,35 @@ export default function Header() {
           <div className="px-4 pt-4 pb-6 space-y-2">
             <Link
               href="/"
-              className="block text-black hover:text-[#f6a235] font-medium"
+              className="block text-black hover:text-[#000089] font-medium"
               onClick={() => setMenuOpen(false)}
             >
               Home
             </Link>
             <Link
               href="/about"
-              className="block text-black hover:text-[#f6a235] font-medium"
+              className="block text-black hover:text-[#000089] font-medium"
               onClick={() => setMenuOpen(false)}
             >
               About Us
             </Link>
             <Link
               href="/services"
-              className="block text-black hover:text-[#f6a235] font-medium"
+              className="block text-black hover:text-[#000089] font-medium"
               onClick={() => setMenuOpen(false)}
             >
               Services
             </Link>
             <Link
-              href="/contact"
-              className="block text-gray-700 hover:text-[#f6a235] font-medium"
+              href="/calculator"
+              className="block text-gray-700 hover:text-[#000089] font-medium"
               onClick={() => setMenuOpen(false)}
             >
-              Contact
+              Calculator
             </Link>
             <Link
               href="/contact"
-              className="block bg-[#f6a235] hover:bg-[#c74c17] text-white px-4 py-2 rounded-md font-medium text-center transition"
+              className="block bg-[#000089] hover:bg-[#000000] text-white px-4 py-2 rounded-md font-medium text-center transition"
               onClick={() => setMenuOpen(false)}
             >
               Contact Button

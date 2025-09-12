@@ -10,7 +10,7 @@ const Marketing = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Left Content */}
         <div>
-          <h2 className="text-2xl md:text-3xl font-extrabold text-[#f6a235] leading-snug">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-[#000089] leading-snug">
             Marketing Network
           </h2>
           <div className="w-20 h-[3px] bg-[#272727] mt-3 mb-6"></div>
@@ -29,7 +29,7 @@ const Marketing = () => {
           </p>
 
           <Link href="/contact">
-            <button className="inline-block bg-[#f6a235] hover:bg-[#c74c17] text-white px-6 py-3 rounded-md font-bold transition">
+            <button className="inline-block bg-[#000089] hover:bg-[#000000] text-white px-6 py-3 rounded-md font-bold transition">
               GET A QUOTE
             </button>
           </Link>

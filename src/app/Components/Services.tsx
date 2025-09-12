@@ -86,7 +86,7 @@ export default function Services() {
                   height={400}
                   className="w-full h-56 object-cover"
                 />
-                <div className="absolute bottom-0 right-0 bg-[#f6a235] p-3 rounded-tl-lg flex items-center justify-center">
+                <div className="absolute bottom-0 right-0 bg-[#000089] p-3 rounded-tl-lg flex items-center justify-center">
                   {service.icon}
                 </div>
               </div>
@@ -107,7 +107,7 @@ export default function Services() {
         <div className="mt-10">
           <Link
             href="/service"
-            className="inline-block bg-[#f6a235] hover:bg-[#c74c17] text-white px-6 py-3 rounded-md font-medium transition"
+            className="inline-block bg-[#000089] hover:bg-[#000000] text-white px-6 py-3 rounded-md font-medium transition"
           >
             Explore Services
           </Link>

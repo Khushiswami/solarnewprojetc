@@ -101,7 +101,7 @@ export default function Faqs() {
                 }}
                 className={`px-4 py-2 rounded-md font-medium transition ${
                   activeTab === tab
-                    ? "bg-[#f6a235] text-white"
+                    ? "bg-[#000089] text-white"
                     : "bg-white text-black hover:bg-gray-200"
                 }`}
               >

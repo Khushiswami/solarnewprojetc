@@ -32,7 +32,7 @@ export default function Banner() {
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-[#e0561b] hover:bg-[#c74c17] text-white px-6 py-3 rounded-md font-bold transition"
+              className="inline-block bg-[#000080] hover:bg-[#000000] text-white px-6 py-3 rounded-md font-bold transition"
             >
               Get Started
             </Link>
@@ -44,7 +44,7 @@ export default function Banner() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left Content */}
           <div>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-[#f6a235] leading-snug  ">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-[#000089] leading-snug  ">
               About Us{" "}
             </h2>
             <div className="w-20 h-[3px] bg-[#272727] mt-3 mb-6"></div>
@@ -68,7 +68,7 @@ export default function Banner() {
             </p>
 
             <Link href="/contact">
-              <button className="inline-block bg-[#f6a235] hover:bg-[#c74c17] text-white px-6 py-3 rounded-md font-bold transition">
+              <button className="inline-block bg-[#000089] hover:bg-[#000000] text-white px-6 py-3 rounded-md font-bold transition">
                 GET A QUOTE
               </button>
             </Link>
