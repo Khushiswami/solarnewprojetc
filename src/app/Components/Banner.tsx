@@ -1,0 +1,87 @@
+"use client";
+import { motion } from "framer-motion";
+import Link from "next/link";
+
+export default function Banner() {
+  return (
+    <>
+      <section
+        className="relative h-screen flex items-center"
+        style={{
+          backgroundImage: "url('/banner.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
+
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 w-full">
+          {/* Animated container */}
+          <motion.div
+            initial={{ opacity: 0, y: -50 }} // starts slightly above
+            animate={{ opacity: 1, y: 0 }} // animates down to position
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-left max-w-xl"
+          >
+            <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">
+              Your Trusted Solar Energy Partner{" "}
+            </h1>
+            <p className="text-white text-lg md:text-md mb-6">
+              From residential rooftops to large commercial systems, our expert
+              team delivers sustainable, reliable solar power.{" "}
+            </p>
+            <Link
+              href="/contact"
+              className="inline-block bg-[#e0561b] hover:bg-[#c74c17] text-white px-6 py-3 rounded-md font-bold transition"
+            >
+              Get Started
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="bg-white py-12 px-4 md:px-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          {/* Left Content */}
+          <div>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-[#f6a235] leading-snug  ">
+              About Us{" "}
+            </h2>
+            <div className="w-20 h-[3px] bg-[#272727] mt-3 mb-6"></div>
+
+            <p className="text-gray-700 mb-4 leading-relaxed text-base">
+              Gayatri Construction Company (GCC) is a leading civil and
+              telecommunication network company with a significant presence in
+              Madhya Pradesh, Chhattisgarh, Maharashtra, Delhi NCR, and
+              Chandigarh. Founded in 2017, Gayatri Construction has grown from a
+              small entity to a reputable firm. We have worked with major
+              organizations such as Sun Mobility Pvt. Ltd., Bharti Airtel Ltd.,
+              Accent Telecom Infrastructure Pvt Ltd, TVS, Vertive, Shreenath
+              Logistic and Supply, Kamlesh Kumar Bansal, and as a subcontractor
+              for Jio and Indus Towers Ltd.
+            </p>
+
+            <p className="text-gray-700 mb-4 leading-relaxed text-base">
+              We are registered partners with the Public Works Department
+              (License No. EC170033941) and the Electricity Board (License No.
+              10/7444) in Madhya Pradesh, Chandigarh, and Delhi NCR.
+            </p>
+
+            <Link href="/contact">
+              <button className="inline-block bg-[#f6a235] hover:bg-[#c74c17] text-white px-6 py-3 rounded-md font-bold transition">
+                GET A QUOTE
+              </button>
+            </Link>
+          </div>
+          <div className="flex justify-center">
+            <img
+              src="/about.jpg"
+              alt="EPACK Prefab Industrial Building"
+              className="rounded-md shadow-md w-[600px] h-[400px] object-cover transform transition duration-500 ease-in-out hover:scale-105 hover:shadow-xl"
+            />
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
