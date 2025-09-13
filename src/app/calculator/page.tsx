@@ -242,6 +242,121 @@ export default function Calculator() {
               </div>
             </div>
 
+            {/* mobile data */}
+            {/* ✅ MOBILE RESULT CARD – पिनकोड/बिल के नीचे */}
+            {results && (
+              <div className="mt-6 bg-white p-5 rounded-2xl shadow border border-[#000080] md:hidden">
+                <h3 className="text-2xl font-bold text-center mb-6">
+                  Required System Size
+                </h3>
+                <div className="grid border-1 border-gray-200 p-3 rounded-2xl mb-3 grid-cols-2">
+                  <div className="flex items-center gap-4 p-4 bg-white ">
+                    <FaBolt className="text-gray-500 text-2xl mb-1 mx-auto" />
+                    <div>
+                      <p className="text-black">System Size</p>
+                      <p className="font-semibold text-[#000080]">
+                        {results.systemSize}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4 p-4 bg-white">
+                    <FaTools className="text-gray-500 text-2xl mb-1 mx-auto" />
+                    <div>
+                      <p className="text-black">Roof Size</p>
+                      <p className="font-semibold text-[#000080]">
+                        {results.roofSize}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="text-2xl font-bold text-center mb-6">
+                  Your Solar Savings
+                </h3>
+                <div className="grid border-1 border-gray-200 p-3 rounded-2xl mb-3 grid-cols-2">
+                  <div className="flex items-center gap-4 p-4 bg-white">
+                    <FaRupeeSign className="text-gray-500 text-2xl mb-1 mx-auto" />
+                    <div>
+                      <p className="text-black">Monthly</p>
+                      <p className="font-semibold text-[#000080]">
+                        {results.monthlySavings}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4 p-4 bg-white">
+                    <FaCalendarCheck className="text-gray-500 text-2xl mb-1 mx-auto" />
+                    <div>
+                      <p className="text-black">Yearly</p>
+                      <p className="font-semibold text-[#000080]">
+                        {results.yearlySavings}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="text-2xl font-bold text-center mb-6">
+                  Your Investment
+                </h3>
+                <div className="bg-white p-4 rounded shadow text-center mb-4">
+                  <p>
+                    Total Cost of Plant:{" "}
+                    <span className="font-semibold">{results.totalCost}</span>
+                  </p>
+                  <p>
+                    Subsidy:{" "}
+                    <span className="font-semibold">{results.subsidy}</span>
+                  </p>
+                  <p>
+                    Net Cost:{" "}
+                    <span className="font-semibold">{results.netCost}</span>
+                  </p>
+                  <div className="grid grid-cols-1 gap-4 mt-4">
+                    <div className="p-2 bg-gray-50 rounded">
+                      <p className="text-black">Lifetime Savings</p>
+                      <p className="font-semibold text-[#000080]">
+                        {results.lifetimeSavings}
+                      </p>
+                    </div>
+                    <div className="p-2 bg-gray-50 rounded">
+                      <p className="text-black">ROI</p>
+                      <p className="font-semibold text-[#000080]">
+                        {results.roi}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="text-2xl font-bold text-center mb-6">
+                  Your Solar Saves More <br /> Than Money
+                </h3>
+                <div className="bg-white p-4 rounded shadow grid grid-cols-3 gap-4 text-center">
+                  <div>
+                    <FaGlobe className="text-gray-500 text-2xl mb-1 mx-auto" />
+                    <p className="text-black text-sm">CO₂ Mitigated</p>
+                    <p className="font-semibold">{results.co2Mitigated}</p>
+                  </div>
+                  <div>
+                    <FaTree className="text-gray-500 text-2xl mb-1 mx-auto" />
+                    <p className="text-black text-sm">Trees Planted</p>
+                    <p className="font-semibold">{results.treesPlanted}</p>
+                  </div>
+                  <div>
+                    <FaRoad className="text-gray-500 text-2xl mb-1 mx-auto" />
+                    <p className="text-black text-sm">Distance Offset</p>
+                    <p className="font-semibold">{results.distance}</p>
+                  </div>
+                </div>
+                <div className="w-full bg-white mb-5">
+                  <button
+                    onClick={handleDownload}
+                    className="mt-5  ml-5 px-6 py-3 bg-[#000080] text-white rounded-lg shadow hover:bg-blue-900"
+                  >
+                    Download Quotation
+                  </button>
+                </div>
+              </div>
+            )}
+
             {/* Content boxes */}
             <div className=" mx-auto p-6 bg-white  mt-6">
               <h2 className="text-2xl font-bold mb-2 text-[#000080] text-left">
@@ -327,11 +442,12 @@ export default function Calculator() {
               </p>
             </div>
           </div>
+          {/* mobile */}
 
           {/* Right Section */}
           <div className="flex flex-col items-center text-center w-full">
             {results && (
-              <div className="w-full bg-white rounded-2xl p-18 shadow  border border-[#000080] ">
+              <div className="hidden md:block w-full bg-white rounded-2xl p-18 shadow border border-[#000080]">
                 {/* System Size */}
                 <h3 className="text-2xl font-bold text-center mb-6">
                   Required System Size
