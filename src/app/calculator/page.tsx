@@ -14,7 +14,7 @@ import Header from "../Components/Header";
 import { FaCalendarCheck, FaRupeeSign } from "react-icons/fa";
 import Contact from "../Components/Contact";
 
-export default function SolarCalculator() {
+export default function Calculator() {
   const [pincode, setPincode] = useState("");
   const [bill, setBill] = useState(500);
 
@@ -126,6 +126,22 @@ export default function SolarCalculator() {
   return (
     <>
       <Header />
+      <section className="relative w-full h-96 md:h-[500px] bg-gray-800">
+        <Image
+          src="/banner.jpg"
+          alt="Services Banner"
+          fill
+          className="object-cover opacity-70"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Cut Costs, Cut Carbon
+          </h1>
+          <p className="text-lg md:text-xl text-white max-w-2xl">
+            Save Money Save the Planet
+          </p>
+        </div>
+      </section>
       <section className="w-full px-6 py-12 bg-white mt-20">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start">
           {/* Left Section */}

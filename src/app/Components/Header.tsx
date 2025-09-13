@@ -42,7 +42,7 @@ export default function Header() {
               Services
             </Link>
             <Link
-              href="/calc"
+              href="/calculator"
               className="text-black hover:text-[#000089] font-medium text-[16px]"
             >
               Calculator
@@ -109,7 +109,7 @@ export default function Header() {
               About Us
             </Link>
             <Link
-              href="/services"
+              href="/service"
               className="block text-black hover:text-[#000089] font-medium"
               onClick={() => setMenuOpen(false)}
             >

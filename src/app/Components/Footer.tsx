@@ -7,7 +7,7 @@ import { MdEmail, MdCall } from "react-icons/md";
 
 export default function Footer() {
   return (
-    <footer className="relative text-white mt-5">
+    <footer className="relative text-white">
       {/* Top CTA Section overlapping footer */}
 
       {/* Footer Section */}

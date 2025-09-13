@@ -22,7 +22,7 @@ import {
 } from "react-icons/fa";
 import Faqs from "../Components/Faqs";
 
-export default function Services() {
+export default function Service() {
   const services = [
     {
       title: "Acquisition",
