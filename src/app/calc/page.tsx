@@ -14,7 +14,11 @@ import Header from "../Components/Header";
 import { FaCalendarCheck, FaRupeeSign } from "react-icons/fa";
 import Contact from "../Components/Contact";
 
-export default function SolarCalculator() {
+// ✅ pdf imports
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
+
+export default function Calculator() {
   const [pincode, setPincode] = useState("");
   const [bill, setBill] = useState(500);
 
@@ -102,16 +106,16 @@ export default function SolarCalculator() {
     setResults({
       systemSize: `${systemSize.toFixed(1)} kW`,
       roofSize: `${roofSize.toFixed(0)} sq.ft`,
-      monthlySavings: `₹${monthlySavings.toFixed(0)}`,
-      yearlySavings: `₹${yearlySavings.toFixed(0)}`,
-      totalCost: `₹${totalCost.toFixed(0)}`,
-      subsidy: `₹${subsidy.toFixed(0)}`,
-      netCost: `₹${netCost.toFixed(0)}`,
-      lifetimeSavings: `₹${(yearlySavings * 25).toFixed(0)}`,
+      monthlySavings: `Rs. ${monthlySavings.toFixed(0)}`,
+      yearlySavings: `Rs. ${yearlySavings.toFixed(0)}`,
+      totalCost: `Rs. ${totalCost.toFixed(0)}`,
+      subsidy: `Rs. ${subsidy.toFixed(0)}`,
+      netCost: `Rs. ${netCost.toFixed(0)}`,
+      lifetimeSavings: `Rs. ${(yearlySavings * 25).toFixed(0)}`,
       roi: "19.22% p.a.",
-      minDownPayment: `₹${subsidy.toFixed(0)}`,
-      netDownPayment: "₹0",
-      emi: `₹${(netCost / 60).toFixed(0)}`,
+      minDownPayment: `Rs. ${subsidy.toFixed(0)}`,
+      netDownPayment: "Rs. 0",
+      emi: `Rs. ${(netCost / 60).toFixed(0)}`,
       co2Mitigated: "2,540 Kg",
       treesPlanted: "85",
       distance: "22,680 Kms",
@@ -123,9 +127,75 @@ export default function SolarCalculator() {
     if (pincode) calculateResults();
   }, [bill, pincode]);
 
+  // 🟩 PDF Download
+  const handleDownload = () => {
+    if (!results) return;
+
+    const doc = new jsPDF();
+    // ✅ cast to include lastAutoTable
+    const typedDoc = doc as jsPDF & { lastAutoTable?: { finalY: number } };
+
+    typedDoc.setFontSize(18);
+    typedDoc.text("Solar Quotation", 14, 20);
+    typedDoc.setFontSize(12);
+    typedDoc.text("Customer Quotation generated from Solar Calculator", 14, 30);
+
+    const systemInfo = [
+      ["System Size", results.systemSize],
+      ["Roof Size", results.roofSize],
+      ["Monthly Savings", results.monthlySavings.replace("₹", "Rs. ")],
+      ["Yearly Savings", results.yearlySavings.replace("₹", "Rs. ")],
+      ["Total Cost", results.totalCost.replace("₹", "Rs. ")],
+      ["Subsidy", results.subsidy.replace("₹", "Rs. ")],
+      ["Net Cost", results.netCost.replace("₹", "Rs. ")],
+      ["Lifetime Savings", results.lifetimeSavings.replace("₹", "Rs. ")],
+      ["ROI", results.roi],
+      ["EMI (est.)", results.emi.replace("₹", "Rs. ")],
+    ];
+
+    autoTable(typedDoc, {
+      startY: 40,
+      head: [["System Information", "Values"]],
+      body: systemInfo,
+      theme: "grid",
+      headStyles: { fillColor: [0, 0, 128], textColor: 255 },
+    });
+
+    const envInfo = [
+      ["CO₂ Mitigated", results.co2Mitigated],
+      ["Trees Planted", results.treesPlanted],
+      ["Distance Offset", results.distance],
+    ];
+
+    autoTable(typedDoc, {
+      startY: (typedDoc.lastAutoTable?.finalY || 90) + 10,
+      head: [["Environmental Impact", "Values"]],
+      body: envInfo,
+      theme: "grid",
+      headStyles: { fillColor: [0, 0, 128], textColor: 255 },
+    });
+
+    typedDoc.save("Solar_Quotation.pdf");
+  };
   return (
     <>
       <Header />
+      <section className="relative w-full h-96 md:h-[500px] bg-gray-800">
+        <Image
+          src="/banner.jpg"
+          alt="Services Banner"
+          fill
+          className="object-cover opacity-70"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Cut Costs, Cut Carbon
+          </h1>
+          <p className="text-lg md:text-xl text-white max-w-2xl">
+            Save Money Save the Planet
+          </p>
+        </div>
+      </section>
       <section className="w-full px-6 py-12 bg-white mt-20">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start">
           {/* Left Section */}
@@ -171,6 +241,121 @@ export default function SolarCalculator() {
                 <p className="mt-2 text-black font-semibold">₹{bill}</p>
               </div>
             </div>
+
+            {/* mobile data */}
+            {/* ✅ MOBILE RESULT CARD – पिनकोड/बिल के नीचे */}
+            {results && (
+              <div className="mt-6 bg-white p-5 rounded-2xl shadow border border-[#000080] md:hidden">
+                <h3 className="text-2xl font-bold text-center mb-6">
+                  Required System Size
+                </h3>
+                <div className="grid border-1 border-gray-200 p-3 rounded-2xl mb-3 grid-cols-2">
+                  <div className="flex items-center gap-4 p-4 bg-white ">
+                    <FaBolt className="text-gray-500 text-2xl mb-1 mx-auto" />
+                    <div>
+                      <p className="text-black">System Size</p>
+                      <p className="font-semibold text-[#000080]">
+                        {results.systemSize}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4 p-4 bg-white">
+                    <FaTools className="text-gray-500 text-2xl mb-1 mx-auto" />
+                    <div>
+                      <p className="text-black">Roof Size</p>
+                      <p className="font-semibold text-[#000080]">
+                        {results.roofSize}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="text-2xl font-bold text-center mb-6">
+                  Your Solar Savings
+                </h3>
+                <div className="grid border-1 border-gray-200 p-3 rounded-2xl mb-3 grid-cols-2">
+                  <div className="flex items-center gap-4 p-4 bg-white">
+                    <FaRupeeSign className="text-gray-500 text-2xl mb-1 mx-auto" />
+                    <div>
+                      <p className="text-black">Monthly</p>
+                      <p className="font-semibold text-[#000080]">
+                        {results.monthlySavings}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4 p-4 bg-white">
+                    <FaCalendarCheck className="text-gray-500 text-2xl mb-1 mx-auto" />
+                    <div>
+                      <p className="text-black">Yearly</p>
+                      <p className="font-semibold text-[#000080]">
+                        {results.yearlySavings}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="text-2xl font-bold text-center mb-6">
+                  Your Investment
+                </h3>
+                <div className="bg-white p-4 rounded shadow text-center mb-4">
+                  <p>
+                    Total Cost of Plant:{" "}
+                    <span className="font-semibold">{results.totalCost}</span>
+                  </p>
+                  <p>
+                    Subsidy:{" "}
+                    <span className="font-semibold">{results.subsidy}</span>
+                  </p>
+                  <p>
+                    Net Cost:{" "}
+                    <span className="font-semibold">{results.netCost}</span>
+                  </p>
+                  <div className="grid grid-cols-1 gap-4 mt-4">
+                    <div className="p-2 bg-gray-50 rounded">
+                      <p className="text-black">Lifetime Savings</p>
+                      <p className="font-semibold text-[#000080]">
+                        {results.lifetimeSavings}
+                      </p>
+                    </div>
+                    <div className="p-2 bg-gray-50 rounded">
+                      <p className="text-black">ROI</p>
+                      <p className="font-semibold text-[#000080]">
+                        {results.roi}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="text-2xl font-bold text-center mb-6">
+                  Your Solar Saves More <br /> Than Money
+                </h3>
+                <div className="bg-white p-4 rounded shadow grid grid-cols-3 gap-4 text-center">
+                  <div>
+                    <FaGlobe className="text-gray-500 text-2xl mb-1 mx-auto" />
+                    <p className="text-black text-sm">CO₂ Mitigated</p>
+                    <p className="font-semibold">{results.co2Mitigated}</p>
+                  </div>
+                  <div>
+                    <FaTree className="text-gray-500 text-2xl mb-1 mx-auto" />
+                    <p className="text-black text-sm">Trees Planted</p>
+                    <p className="font-semibold">{results.treesPlanted}</p>
+                  </div>
+                  <div>
+                    <FaRoad className="text-gray-500 text-2xl mb-1 mx-auto" />
+                    <p className="text-black text-sm">Distance Offset</p>
+                    <p className="font-semibold">{results.distance}</p>
+                  </div>
+                </div>
+                <div className="w-full bg-white mb-5">
+                  <button
+                    onClick={handleDownload}
+                    className="mt-5  ml-5 px-6 py-3 bg-[#000080] text-white rounded-lg shadow hover:bg-blue-900"
+                  >
+                    Download Quotation
+                  </button>
+                </div>
+              </div>
+            )}
 
             {/* Content boxes */}
             <div className=" mx-auto p-6 bg-white  mt-6">
@@ -257,11 +442,12 @@ export default function SolarCalculator() {
               </p>
             </div>
           </div>
+          {/* mobile */}
 
           {/* Right Section */}
           <div className="flex flex-col items-center text-center w-full">
             {results && (
-              <div className="w-full bg-white rounded-2xl p-18 shadow  border border-[#000080] ">
+              <div className="hidden md:block w-full bg-white rounded-2xl p-18 shadow border border-[#000080]">
                 {/* System Size */}
                 <h3 className="text-2xl font-bold text-center mb-6">
                   Required System Size
@@ -369,6 +555,15 @@ export default function SolarCalculator() {
                     <p className="text-black text-sm">Distance Offset</p>
                     <p className="font-semibold">{results.distance}</p>
                   </div>
+                </div>
+                <div className="w-full bg-white  ">
+                  {/* your stats here … */}
+                  <button
+                    onClick={handleDownload}
+                    className="mt-5 px-6 py-3 bg-[#000080] text-white rounded-lg shadow hover:bg-blue-900"
+                  >
+                    Download Quotation
+                  </button>
                 </div>
               </div>
             )}

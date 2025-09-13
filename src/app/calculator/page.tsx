@@ -14,6 +14,10 @@ import Header from "../Components/Header";
 import { FaCalendarCheck, FaRupeeSign } from "react-icons/fa";
 import Contact from "../Components/Contact";
 
+// ✅ pdf imports
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
+
 export default function Calculator() {
   const [pincode, setPincode] = useState("");
   const [bill, setBill] = useState(500);
@@ -102,16 +106,16 @@ export default function Calculator() {
     setResults({
       systemSize: `${systemSize.toFixed(1)} kW`,
       roofSize: `${roofSize.toFixed(0)} sq.ft`,
-      monthlySavings: `₹${monthlySavings.toFixed(0)}`,
-      yearlySavings: `₹${yearlySavings.toFixed(0)}`,
-      totalCost: `₹${totalCost.toFixed(0)}`,
-      subsidy: `₹${subsidy.toFixed(0)}`,
-      netCost: `₹${netCost.toFixed(0)}`,
-      lifetimeSavings: `₹${(yearlySavings * 25).toFixed(0)}`,
+      monthlySavings: `Rs. ${monthlySavings.toFixed(0)}`,
+      yearlySavings: `Rs. ${yearlySavings.toFixed(0)}`,
+      totalCost: `Rs. ${totalCost.toFixed(0)}`,
+      subsidy: `Rs. ${subsidy.toFixed(0)}`,
+      netCost: `Rs. ${netCost.toFixed(0)}`,
+      lifetimeSavings: `Rs. ${(yearlySavings * 25).toFixed(0)}`,
       roi: "19.22% p.a.",
-      minDownPayment: `₹${subsidy.toFixed(0)}`,
-      netDownPayment: "₹0",
-      emi: `₹${(netCost / 60).toFixed(0)}`,
+      minDownPayment: `Rs. ${subsidy.toFixed(0)}`,
+      netDownPayment: "Rs. 0",
+      emi: `Rs. ${(netCost / 60).toFixed(0)}`,
       co2Mitigated: "2,540 Kg",
       treesPlanted: "85",
       distance: "22,680 Kms",
@@ -123,6 +127,56 @@ export default function Calculator() {
     if (pincode) calculateResults();
   }, [bill, pincode]);
 
+  // 🟩 PDF Download
+  const handleDownload = () => {
+    if (!results) return;
+
+    const doc = new jsPDF();
+    // ✅ cast to include lastAutoTable
+    const typedDoc = doc as jsPDF & { lastAutoTable?: { finalY: number } };
+
+    typedDoc.setFontSize(18);
+    typedDoc.text("Solar Quotation", 14, 20);
+    typedDoc.setFontSize(12);
+    typedDoc.text("Customer Quotation generated from Solar Calculator", 14, 30);
+
+    const systemInfo = [
+      ["System Size", results.systemSize],
+      ["Roof Size", results.roofSize],
+      ["Monthly Savings", results.monthlySavings.replace("₹", "Rs. ")],
+      ["Yearly Savings", results.yearlySavings.replace("₹", "Rs. ")],
+      ["Total Cost", results.totalCost.replace("₹", "Rs. ")],
+      ["Subsidy", results.subsidy.replace("₹", "Rs. ")],
+      ["Net Cost", results.netCost.replace("₹", "Rs. ")],
+      ["Lifetime Savings", results.lifetimeSavings.replace("₹", "Rs. ")],
+      ["ROI", results.roi],
+      ["EMI (est.)", results.emi.replace("₹", "Rs. ")],
+    ];
+
+    autoTable(typedDoc, {
+      startY: 40,
+      head: [["System Information", "Values"]],
+      body: systemInfo,
+      theme: "grid",
+      headStyles: { fillColor: [0, 0, 128], textColor: 255 },
+    });
+
+    const envInfo = [
+      ["CO₂ Mitigated", results.co2Mitigated],
+      ["Trees Planted", results.treesPlanted],
+      ["Distance Offset", results.distance],
+    ];
+
+    autoTable(typedDoc, {
+      startY: (typedDoc.lastAutoTable?.finalY || 90) + 10,
+      head: [["Environmental Impact", "Values"]],
+      body: envInfo,
+      theme: "grid",
+      headStyles: { fillColor: [0, 0, 128], textColor: 255 },
+    });
+
+    typedDoc.save("Solar_Quotation.pdf");
+  };
   return (
     <>
       <Header />
@@ -385,6 +439,15 @@ export default function Calculator() {
                     <p className="text-black text-sm">Distance Offset</p>
                     <p className="font-semibold">{results.distance}</p>
                   </div>
+                </div>
+                <div className="w-full bg-white  ">
+                  {/* your stats here … */}
+                  <button
+                    onClick={handleDownload}
+                    className="mt-5 px-6 py-3 bg-[#000080] text-white rounded-lg shadow hover:bg-blue-900"
+                  >
+                    Download Quotation
+                  </button>
                 </div>
               </div>
             )}
