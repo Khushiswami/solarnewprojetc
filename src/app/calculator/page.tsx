@@ -243,7 +243,6 @@ export default function Calculator() {
             </div>
 
             {/* mobile data */}
-            {/* ✅ MOBILE RESULT CARD – पिनकोड/बिल के नीचे */}
             {results && (
               <div className="mt-6 bg-white p-5 rounded-2xl shadow border border-[#000080] md:hidden">
                 <h3 className="text-2xl font-bold text-center mb-6">
@@ -342,7 +341,7 @@ export default function Calculator() {
                   </div>
                   <div>
                     <FaRoad className="text-gray-500 text-2xl mb-1 mx-auto" />
-                    <p className="text-black text-sm">Distance Offset</p>
+                    <p className="text-black text-sm">Distance </p>
                     <p className="font-semibold">{results.distance}</p>
                   </div>
                 </div>
