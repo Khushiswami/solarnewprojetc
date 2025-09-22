@@ -13,7 +13,7 @@ const page = () => {
       {/* banner */}
       <section className="relative w-full h-96 md:h-[500px] bg-gray-800">
         <Image
-          src="/banner.jpg"
+          src="/power.jpg"
           alt="Services Banner"
           fill
           className="object-cover opacity-70"

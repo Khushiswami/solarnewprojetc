@@ -47,7 +47,7 @@ export default function Allservice() {
     },
     {
       title: "Tower Erection, Tightening & Dismantling",
-      img: "/service  5.png",
+      img: "/service 5.png",
       link: "/service",
     },
     {

@@ -21,8 +21,8 @@ export default function Footer() {
                   <Image
                     src="/logo.png"
                     alt="My Logo"
-                    width={150}
-                    height={40}
+                    width={110}
+                    height={30}
                     priority
                   />
                 </Link>

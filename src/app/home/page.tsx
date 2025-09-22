@@ -35,17 +35,17 @@ const itemVariants: Variants = {
 
 const slides: Slide[] = [
   {
-    image: "/images/slide1.jpg",
+    image: "/power.jpg",
     title: "Clean Solar Energy",
     description: "Harness the power of the sun for your home and business.",
   },
   {
-    image: "/images/slide2.jpg",
+    image: "/power.jpg",
     title: "Save Money",
     description: "Lower your energy bills and enjoy renewable energy benefits.",
   },
   {
-    image: "/images/slide3.jpg",
+    image: "/power.jpg",
     title: "Sustainable Future",
     description: "Contribute to a greener planet by switching to solar power.",
   },

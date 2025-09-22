@@ -35,7 +35,7 @@ const Commercial = () => {
       <section
         className="relative h-screen flex items-center"
         style={{
-          backgroundImage: "url('/pg.jpg')",
+          backgroundImage: "url('/banthree.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
