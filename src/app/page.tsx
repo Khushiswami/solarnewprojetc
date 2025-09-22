@@ -10,18 +10,22 @@ import Services from "./Components/Services";
 import Marketing from "./Components/Marketing";
 import Contact from "./Components/Contact";
 import WhyChoose from "./Components/Whychoose";
+import Allservice from "./Components/Allservice";
+import Partners from "./Components/Partners";
+import Patners from "./Components/Partners";
 
 export default function Home() {
   return (
     <>
       <Header />
       <Banner />
-
+      <Allservice />
       <Zig />
       <Marketing />
-      <Services />
+      {/* <Services /> */}
       <Whychoose />
       <Contact />
+      <Partners />
       <Faqs />
       <Footer />
     </>

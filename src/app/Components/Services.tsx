@@ -18,37 +18,37 @@ export default function Services() {
     {
       title: "Acquisition",
       desc: "Comprehensive site acquisition services ensuring prime locations for telecom and infrastructure projects.",
-      img: "/power.jpg",
+      img: "/service 1.png",
       icon: <FaHandshake size={24} className="text-white" />,
     },
     {
       title: "Upgradation & Expansion",
       desc: "Upgrade and expand your existing infrastructure with our expert planning and execution.",
-      img: "/power.jpg",
+      img: "/service 2.png",
       icon: <FaArrowUp size={24} className="text-white" />,
     },
     {
       title: "Repair & Maintenance",
       desc: "Efficient repair and maintenance to maximize uptime and extend asset lifespan.",
-      img: "/power.jpg",
+      img: "/service 3.png",
       icon: <FaTools size={24} className="text-white" />,
     },
     {
       title: "Fabrication of BW Material & Canopies",
       desc: "Custom fabrication of BW material, canopies, HT material, and safety structures for Indus Towers.",
-      img: "/power.jpg",
+      img: "/service 4.png",
       icon: <FaIndustry size={24} className="text-white" />,
     },
     {
       title: "Project Management & Security",
       desc: "End-to-end project management and on-site security ensuring timely and secure operations.",
-      img: "/power.jpg",
+      img: "/service 5.png",
       icon: <FaProjectDiagram size={24} className="text-white" />,
     },
     {
       title: "Vehicle Charging & Swapping Station",
       desc: "Cutting-edge EV charging and swapping station solutions for a sustainable future.",
-      img: "/power.jpg",
+      img: "/service 6.png",
       icon: <FaChargingStation size={24} className="text-white" />,
     },
   ];
@@ -86,7 +86,7 @@ export default function Services() {
                   height={400}
                   className="w-full h-56 object-cover"
                 />
-                <div className="absolute bottom-0 right-0 bg-[#000089] p-3 rounded-tl-lg flex items-center justify-center">
+                <div className="absolute bottom-0 right-0 bg-[#F9820C] p-3 rounded-tl-lg flex items-center justify-center">
                   {service.icon}
                 </div>
               </div>
@@ -107,7 +107,7 @@ export default function Services() {
         <div className="mt-10">
           <Link
             href="/service"
-            className="inline-block bg-[#000089] hover:bg-[#000000] text-white px-6 py-3 rounded-md font-medium transition"
+            className="inline-block bg-[#F9820C] hover:bg-[#000000] text-white px-6 py-3 rounded-md font-medium transition"
           >
             Explore Services
           </Link>

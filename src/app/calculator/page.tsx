@@ -218,7 +218,7 @@ export default function Calculator() {
                   value={pincode}
                   onChange={(e) => setPincode(e.target.value)}
                   placeholder="Enter pin code"
-                  className="w-full border rounded-lg px-4 py-2 text-black focus:ring-2 focus:ring-[#000080] focus:outline-none"
+                  className="w-full border rounded-lg px-4 py-2 text-black focus:ring-2 focus:ring-[#F9820C] focus:outline-none"
                 />
               </div>
 
@@ -244,7 +244,7 @@ export default function Calculator() {
 
             {/* mobile data */}
             {results && (
-              <div className="mt-6 bg-white p-5 rounded-2xl shadow border border-[#000080] md:hidden">
+              <div className="mt-6 bg-white p-5 rounded-2xl shadow border border-[#F9820C] md:hidden">
                 <h3 className="text-2xl font-bold text-center mb-6">
                   Required System Size
                 </h3>
@@ -253,7 +253,7 @@ export default function Calculator() {
                     <FaBolt className="text-gray-500 text-2xl mb-1 mx-auto" />
                     <div>
                       <p className="text-black">System Size</p>
-                      <p className="font-semibold text-[#000080]">
+                      <p className="font-semibold text-[#F9820C]">
                         {results.systemSize}
                       </p>
                     </div>
@@ -262,7 +262,7 @@ export default function Calculator() {
                     <FaTools className="text-gray-500 text-2xl mb-1 mx-auto" />
                     <div>
                       <p className="text-black">Roof Size</p>
-                      <p className="font-semibold text-[#000080]">
+                      <p className="font-semibold text-[#F9820C]">
                         {results.roofSize}
                       </p>
                     </div>
@@ -277,7 +277,7 @@ export default function Calculator() {
                     <FaRupeeSign className="text-gray-500 text-2xl mb-1 mx-auto" />
                     <div>
                       <p className="text-black">Monthly</p>
-                      <p className="font-semibold text-[#000080]">
+                      <p className="font-semibold text-[#F9820C]">
                         {results.monthlySavings}
                       </p>
                     </div>
@@ -286,7 +286,7 @@ export default function Calculator() {
                     <FaCalendarCheck className="text-gray-500 text-2xl mb-1 mx-auto" />
                     <div>
                       <p className="text-black">Yearly</p>
-                      <p className="font-semibold text-[#000080]">
+                      <p className="font-semibold text-[#F9820C]">
                         {results.yearlySavings}
                       </p>
                     </div>
@@ -312,13 +312,13 @@ export default function Calculator() {
                   <div className="grid grid-cols-1 gap-4 mt-4">
                     <div className="p-2 bg-gray-50 rounded">
                       <p className="text-black">Lifetime Savings</p>
-                      <p className="font-semibold text-[#000080]">
+                      <p className="font-semibold text-[#F9820C]">
                         {results.lifetimeSavings}
                       </p>
                     </div>
                     <div className="p-2 bg-gray-50 rounded">
                       <p className="text-black">ROI</p>
-                      <p className="font-semibold text-[#000080]">
+                      <p className="font-semibold text-[#F9820C]">
                         {results.roi}
                       </p>
                     </div>
@@ -348,7 +348,7 @@ export default function Calculator() {
                 <div className="w-full bg-white mb-5">
                   <button
                     onClick={handleDownload}
-                    className="mt-5  ml-5 px-6 py-3 bg-[#000080] text-white rounded-lg shadow hover:bg-blue-900"
+                    className="mt-5  ml-5 px-6 py-3 bg-[#F9820C] text-white rounded-lg shadow hover:bg-blue-900"
                   >
                     Download Quotation
                   </button>
@@ -358,7 +358,7 @@ export default function Calculator() {
 
             {/* Content boxes */}
             <div className=" mx-auto p-6 bg-white  mt-6">
-              <h2 className="text-2xl font-bold mb-2 text-[#000080] text-left">
+              <h2 className="text-2xl font-bold mb-2 text-[#F9820C] text-left">
                 Calculate Your Solar Savings with the Gayatri Construction Solar
                 Calculator
               </h2>
@@ -370,7 +370,7 @@ export default function Calculator() {
                 long-term savings — all in just a few clicks.
               </p>
 
-              <h2 className="text-2xl font-bold mb-2 text-[#000080] mt-6">
+              <h2 className="text-2xl font-bold mb-2 text-[#F9820C] mt-6">
                 Why Use the GAYATRI CONSTRUCTION Solar Panel Calculator?
               </h2>
               <p className="text-black">
@@ -395,7 +395,7 @@ export default function Calculator() {
                   area you will need for panels
                 </li>
               </ul>
-              <h2 className="text-2xl font-bold mb-2 text-[#000080] text-left mt-6">
+              <h2 className="text-2xl font-bold mb-2 text-[#F9820C] text-left mt-6">
                 How it Works ?
               </h2>
               <p className="text-black mb-4">
@@ -446,7 +446,7 @@ export default function Calculator() {
           {/* Right Section */}
           <div className="flex flex-col items-center text-center w-full">
             {results && (
-              <div className="hidden md:block w-full bg-white rounded-2xl p-18 shadow border border-[#000080]">
+              <div className="hidden md:block w-full bg-white rounded-2xl p-18 shadow border border-[#F9820C]">
                 {/* System Size */}
                 <h3 className="text-2xl font-bold text-center mb-6">
                   Required System Size
@@ -457,7 +457,7 @@ export default function Calculator() {
                     <FaBolt className="text-gray-500 text-2xl mb-1 mx-auto" />
                     <div>
                       <p className="text-black">System Size</p>
-                      <p className="font-semibold text-[#000080]">
+                      <p className="font-semibold text-[#F9820C]">
                         {results.systemSize}
                       </p>
                     </div>
@@ -466,7 +466,7 @@ export default function Calculator() {
                     <FaTools className="text-gray-500 text-2xl mb-1 mx-auto" />
                     <div>
                       <p className="text-black">Roof Size</p>
-                      <p className="font-semibold text-[#000080]">
+                      <p className="font-semibold text-[#F9820C]">
                         {results.roofSize}
                       </p>
                     </div>
@@ -485,7 +485,7 @@ export default function Calculator() {
 
                     <div>
                       <p className="text-black">Monthly</p>
-                      <p className="font-semibold text-[#000080]">
+                      <p className="font-semibold text-[#F9820C]">
                         {results.monthlySavings}
                       </p>
                     </div>
@@ -495,7 +495,7 @@ export default function Calculator() {
 
                     <div>
                       <p className="text-black">Yearly</p>
-                      <p className="font-semibold text-[#000080]">
+                      <p className="font-semibold text-[#F9820C]">
                         {results.yearlySavings}
                       </p>
                     </div>
@@ -521,13 +521,13 @@ export default function Calculator() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                     <div className="p-2 bg-gray-50 rounded">
                       <p className="text-black">Lifetime Savings</p>
-                      <p className="font-semibold text-[#000080]">
+                      <p className="font-semibold text-[#F9820C]">
                         {results.lifetimeSavings}
                       </p>
                     </div>
                     <div className="p-2 bg-gray-50 rounded">
                       <p className="text-black">ROI</p>
-                      <p className="font-semibold text-[#000080]">
+                      <p className="font-semibold text-[#F9820C]">
                         {results.roi}
                       </p>
                     </div>
@@ -559,7 +559,7 @@ export default function Calculator() {
                   {/* your stats here … */}
                   <button
                     onClick={handleDownload}
-                    className="mt-5 px-6 py-3 bg-[#000080] text-white rounded-lg shadow hover:bg-blue-900"
+                    className="mt-5 px-6 py-3 bg-[#F9820C] text-white rounded-lg shadow hover:bg-blue-900"
                   >
                     Download Quotation
                   </button>
@@ -582,7 +582,7 @@ export default function Calculator() {
               </h3>
 
               <div className="flex flex-col items-center">
-                <FaBolt className="text-[#000080] text-2xl mb-2" />
+                <FaBolt className="text-[#F9820C] text-2xl mb-2" />
                 <h4 className="font-semibold text-gray-800">
                   Calculate Your Savings
                 </h4>
@@ -593,7 +593,7 @@ export default function Calculator() {
               </div>
 
               <div className="flex flex-col items-center">
-                <FaCalendarAlt className="text-[#000080] text-2xl mb-2" />
+                <FaCalendarAlt className="text-[#F9820C] text-2xl mb-2" />
                 <h4 className="font-semibold text-gray-800">
                   Book a Free Consultation
                 </h4>
@@ -604,7 +604,7 @@ export default function Calculator() {
               </div>
 
               <div className="flex flex-col items-center">
-                <FaTools className="text-[#000080] text-2xl mb-2" />
+                <FaTools className="text-[#F9820C] text-2xl mb-2" />
                 <h4 className="font-semibold text-gray-800">
                   Quick & Safe Installation
                 </h4>

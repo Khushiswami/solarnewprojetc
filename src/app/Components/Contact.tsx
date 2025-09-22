@@ -6,7 +6,7 @@ const Contact = () => {
     <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen bg-[#000B57] text-white px-6 py-12">
       <div className="max-w-lg mb-10 lg:mb-0 lg:mr-20">
         <h1 className="text-[32px] lg:text-[44px] font-bold leading-tight mb-4">
-          Schedule a <span className="text-[#00C8FF]">FREE consultation</span>
+          Schedule a <span className="text-[#F9820C]">FREE consultation</span>
           <br /> with us today!
         </h1>
         <p className="text-base text-gray-300">
@@ -90,11 +90,11 @@ const Contact = () => {
           <input type="checkbox" required className="mt-1" />
           <p>
             I agree to Gayatri Solar{" "}
-            <a href="#" className="text-[#000080] underline">
+            <a href="#" className="text-[#F9820C] underline">
               terms of service
             </a>{" "}
             &{" "}
-            <a href="#" className="text-[#000080] underline">
+            <a href="#" className="text-[#F9820C] underline">
               privacy policy
             </a>
           </p>
@@ -102,7 +102,7 @@ const Contact = () => {
 
         <button
           type="submit"
-          className="w-full bg-[#000080] text-white font-semibold py-2 rounded hover:bg-blue-700 transition duration-200"
+          className="w-full bg-[#F9820C] text-white font-semibold py-2 rounded hover:bg-blue-700 transition duration-200"
         >
           Submit
         </button>

@@ -101,7 +101,7 @@
 //                 }}
 //                 className={`px-4 py-2 rounded-md font-medium transition ${
 //                   activeTab === tab
-//                     ? "bg-[#000089] text-white"
+//                     ? "bg-[#F9820C] text-white"
 //                     : "bg-white text-black hover:bg-gray-200"
 //                 }`}
 //               >
@@ -287,7 +287,7 @@ export default function Faqs() {
                   {tab}
                   <span
                     className={`text-2xl font-bold ${
-                      activeTab === tab ? "text-white" : "text-[#000089]"
+                      activeTab === tab ? "text-white" : "text-[#F9820C]"
                     }`}
                   >
                     {activeTab === tab ? "−" : "+"}
@@ -310,7 +310,7 @@ export default function Faqs() {
                           className="w-full flex justify-between items-center py-2 text-left font-medium text-gray-900"
                         >
                           {item.q}
-                          <span className="text-2xl leading-none text-[#000089]">
+                          <span className="text-2xl leading-none text-[#F9820C]">
                             {openIndex === i ? "−" : "+"}
                           </span>
                         </button>
