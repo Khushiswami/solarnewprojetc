@@ -180,12 +180,12 @@ export default function Calculator() {
   return (
     <>
       <Header />
-      <section className="relative w-full h-96 md:h-[500px] bg-gray-800">
+      <section className="relative w-full h-96 md:h-[500px] ">
         <Image
           src="/banner.jpg"
           alt="Services Banner"
           fill
-          className="object-cover opacity-70"
+          className="object-cover "
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">

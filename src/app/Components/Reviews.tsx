@@ -5,45 +5,45 @@ const Reviews = () => {
   const testimonials = [
     {
       name: "Jagriti Awasthi",
-      position: "CEO, Company Inc.",
+      position: "President, Green Housing Society",
       message:
-        '"Fantastic service and a clean, comfortable room. Highly recommend for both business and leisure!"',
-      image: "/power.jpg",
+        '"The rooftop solar system installed by this team has drastically cut our society’s electricity bills. Their service was professional and timely!"',
+      image: "/test4.jpeg",
     },
     {
       name: "Jayendra Singh",
-      position: "Marketing Director, Brand Co.",
+      position: "Facility Manager, Bright Towers",
       message:
-        '"Outstanding service with a focus on cleanliness. My room was cleaned to perfection every day."',
-      image: "/power.jpg",
+        '"Outstanding solar maintenance service! Our on-grid solar panels are now performing at peak efficiency thanks to their expert care."',
+      image: "/test3.jpeg",
     },
     {
       name: "Kratika Rathi",
-      position: "Software Engineer, TechWorld",
+      position: "Resident, Eco Apartments",
       message:
-        '"Exceptional service and spotless rooms! The staff were friendly, and everything was pristine."',
-      image: "/power.jpg",
+        '"Exceptional experience with their off-grid solar solutions. Our community now enjoys uninterrupted power and significant savings."',
+      image: "/test4.jpeg",
     },
     {
       name: "Shubham Yadav",
-      position: "HR Manager, PeopleFirst",
+      position: "Secretary, Sunview Residency",
       message:
-        '"I loved the professionalism and hospitality. Everything was perfect and on time."',
-      image: "/power.jpg",
+        '"Professional installation and seamless service! They handled our housing society’s entire solar project from design to commissioning flawlessly."',
+      image: "/test2.jpeg",
     },
     {
       name: "Pooja Sharma",
-      position: "Designer, Creative Minds",
+      position: "Homeowner, Solar Greens",
       message:
-        '"Clean rooms and friendly staff. Great experience overall, will book again."',
-      image: "/power.jpg",
+        '"Great team to work with. Their on-grid solar system reduced our power bills by over 50% and their after-sales support is excellent."',
+      image: "/test4.jpeg",
     },
     {
       name: "Rahul Verma",
-      position: "Founder, Startup Hub",
+      position: "Founder, Clean Energy Startups",
       message:
-        '"The best stay I have had in years! The service and amenities exceeded my expectations."',
-      image: "/power.jpg",
+        '"The best solar experience I have had! From consultation to installation, everything exceeded expectations and transformed our energy usage."',
+      image: "/test3.jpeg",
     },
   ];
 

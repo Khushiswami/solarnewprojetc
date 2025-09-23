@@ -106,9 +106,6 @@ const Commercial = () => {
           backgroundPosition: "center",
         }}
       >
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/50" />
-
         <div className="relative max-w-7xl mx-auto px-4 sm:px-8 w-full">
           {/* Animated container */}
           <motion.div

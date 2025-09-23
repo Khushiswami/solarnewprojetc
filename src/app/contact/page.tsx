@@ -41,7 +41,7 @@ export default function Contact() {
     setShowMessage(true);
 
     try {
-      const response = await fetch("/api/send-email", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -147,8 +147,8 @@ export default function Contact() {
           </div>
 
           <div className="w-full md:w-1/2">
-            <div className="mt-5">
-              <iframe
+            {/* <div className="mt-5"> */}
+            {/* <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.657218480835!2d77.05630497540484!3d28.42959829326745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1907e786f627%3A0x3a018b67571a0ec7!2sSaavi%20Hotel%20Sector%2046!5e0!3m2!1sen!2sin!4v1738749967763!5m2!1sen!2sin"
                 width="100%"
                 height="400"
@@ -157,8 +157,24 @@ export default function Contact() {
                 allowFullScreen={true}
                 aria-hidden="false"
                 tabIndex={0}
+              ></iframe> */}
+
+            <div className="w-full h-96 md:mt-15">
+              {" "}
+              {/* h-96 = 24rem ≈ 384px */}
+              <iframe
+                title="Head Office Location"
+                src="https://www.google.com/maps?q=Ward+No.+14,+Mahaveer+Colony,+Palera,+Dist.+Tikamgarh,+M.P.&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
+
+            {/* </div> */}
           </div>
         </div>
 

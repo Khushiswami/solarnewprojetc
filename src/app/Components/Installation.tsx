@@ -13,21 +13,21 @@ export default function Installation() {
       title: "Roof Type",
       description:
         "RCC rooftops that need space for other uses require elevated hot-dip galvanized steel mounting structures. Metallic sheet roofs need lightweight, sturdy, and corrosion-resistant aluminum rail structures.",
-      img: "/ban.jpg",
+      img: "/power.jpg",
       link: "/system",
     },
     {
       title: "Slope, Direction & Mounting Angle",
       description:
         "Maximum solar generation occurs when panels face south and remain shadow-free between 9 AM and 4 PM. Ideal tilt angles vary by region: around 10° in South India and over 20° in North India.",
-      img: "/ban.jpg",
+      img: "/install3.png",
       link: "/system",
     },
     {
       title: "Safe Rooftop Access",
       description:
         "Installers need safe, direct access to carry materials, and post-installation maintenance requires convenient passage for regular check-ups.",
-      img: "/ban.jpg",
+      img: "/service 1.png",
       link: "/system",
     },
   ];

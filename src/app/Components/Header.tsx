@@ -110,7 +110,8 @@
 //                     <Link
 //                       key={item.name}
 //                       href={item.href}
-//                       className={`block px-4 py-2 hover:bg-[#F9820C] hover:text-white`}
+//                       className="block px-4 py-2 hover:bg-[#F9820C] hover:text-white"
+//                       onClick={() => setDropdown(null)}
 //                     >
 //                       {item.icon} {item.name}
 //                     </Link>
@@ -148,7 +149,8 @@
 //                     <Link
 //                       key={item.name}
 //                       href={item.href}
-//                       className={`block px-4 py-2 hover:bg-[#F9820C] hover:text-white`}
+//                       className="block px-4 py-2 hover:bg-[#F9820C] hover:text-white"
+//                       onClick={() => setDropdown(null)}
 //                     >
 //                       {item.icon} {item.name}
 //                     </Link>
@@ -292,7 +294,7 @@
 //   );
 // }
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -311,6 +313,8 @@ export default function Header() {
   );
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const offerings = [
     { name: "Home", href: "/home", icon: <FaHome className="inline mr-2" /> },
@@ -354,6 +358,22 @@ export default function Header() {
     document.body.style.overflow = menuOpen ? "hidden" : "auto";
   }, [menuOpen]);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
+        setDropdown(null);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-colors duration-300 ${
@@ -381,14 +401,16 @@ export default function Header() {
             className={`hidden md:flex space-x-8 items-center ${
               scrolled ? "text-black" : "text-white"
             }`}
+            ref={dropdownRef}
           >
             {/* Our Offering Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setDropdown("offerings")}
-              onMouseLeave={() => setDropdown(null)}
-            >
-              <button className="hover:text-[#F9820C] font-medium text-[16px]">
+            <div className="relative">
+              <button
+                onClick={() =>
+                  setDropdown(dropdown === "offerings" ? null : "offerings")
+                }
+                className="hover:text-[#F9820C] font-medium text-[16px]"
+              >
                 Our Offering ▾
               </button>
               {dropdown === "offerings" && (
@@ -422,12 +444,13 @@ export default function Header() {
             </Link>
 
             {/* Services Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setDropdown("services")}
-              onMouseLeave={() => setDropdown(null)}
-            >
-              <button className="hover:text-[#F9820C] font-medium text-[16px]">
+            <div className="relative">
+              <button
+                onClick={() =>
+                  setDropdown(dropdown === "services" ? null : "services")
+                }
+                className="hover:text-[#F9820C] font-medium text-[16px]"
+              >
                 Services ▾
               </button>
               {dropdown === "services" && (
@@ -559,7 +582,10 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   className="block ml-4 py-2 text-black hover:text-[#F9820C]"
-                  onClick={() => setMenuOpen(false)}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setMobileServicesOpen(false);
+                  }}
                 >
                   {item.icon} {item.name}
                 </Link>

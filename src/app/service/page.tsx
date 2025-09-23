@@ -69,7 +69,7 @@ export default function Service() {
     {
       title: "Fabrication of BW Material & Canopies",
       desc: "Custom fabrication of BW material, canopies, HT material, and safety structures for Indus Towers.",
-      img: "/service 8.png",
+      img: "/service 10.png",
       icon: <FaIndustry size={24} className="text-white" />,
     },
     {
@@ -81,7 +81,7 @@ export default function Service() {
     {
       title: "Project Management & Security",
       desc: "End-to-end project management and on-site security ensuring timely and secure operations.",
-      img: "/service 10.png",
+      img: "/service 8.png",
       icon: <FaProjectDiagram size={24} className="text-white" />,
     },
     {
