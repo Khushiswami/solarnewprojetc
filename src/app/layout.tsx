@@ -1,48 +1,14 @@
-// import type { Metadata } from "next";
-// import { Geist, Geist_Mono } from "next/font/google";
-// import "./globals.css";
-
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
-
-// export const metadata: Metadata = {
-//   title: "Gayatri Solar",
-//   description:
-//     "Gayatri Solar is one of India’s leading commercial solar installation company",
-// };
-
-// export default function RootLayout({
-//   children,
-// }: Readonly<{
-//   children: React.ReactNode;
-// }>) {
-//   return (
-//     <html lang="en">
-//       <body
-//         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-//       >
-//         {children}
-//       </body>
-//     </html>
-//   );
-// }
 import type { Metadata } from "next";
-import { Quicksand } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 
 import Head from "next/head";
 
-const quicksand = Quicksand({
-  variable: "--font-quicksand",
+// ✅ Import Poppins font
+const poppins = Poppins({
+  variable: "--font-poppins", // custom CSS variable name
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"], // adjust weights as needed
 });
 
 export const metadata: Metadata = {
@@ -67,7 +33,7 @@ export default function RootLayout({
           referrerPolicy="no-referrer"
         />
       </Head>
-      <body className={`${quicksand.variable} antialiased`}>{children}</body>
+      <body className={`${poppins.variable} antialiased`}>{children}</body>
     </html>
   );
 }
