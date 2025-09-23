@@ -62,7 +62,7 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto px-3 lg:px-8 md:px-7">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-2 md:py-1">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" passHref>
