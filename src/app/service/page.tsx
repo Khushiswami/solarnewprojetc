@@ -51,7 +51,7 @@ export default function Service() {
     {
       title: "Tower Erection, Tightening & Dismantling",
       desc: "Professional tower erection, tightening, and dismantling services ensuring quality and safety standards.",
-      img: "/service  5.png",
+      img: "/service 5.png",
       icon: <FaIndustry size={24} className="text-white" />,
     },
     {
@@ -115,7 +115,7 @@ export default function Service() {
       {/* banner */}
       <section className="relative w-full h-96 md:h-[500px] bg-gray-800">
         <Image
-          src="/banner.jpg"
+          src="/pg.jpg"
           alt="Services Banner"
           fill
           className="object-cover opacity-70"

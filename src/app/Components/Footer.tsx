@@ -148,7 +148,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
           {/* Logo & Info */}
           <div className="flex flex-col items-center md:items-start">
-            <div className="flex items-center mb-4 justify-center md:justify-start">
+            <div className="flex items-center mb-1 justify-center md:justify-start">
               <Link href="/">
                 <Image
                   src="/logo.png"
@@ -181,31 +181,31 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="flex flex-col items-center md:items-start">
-            <h4 className="font-bold text-black mb-4">Quick Links</h4>
+            <h4 className="font-bold text-black mb-4">Services</h4>
             <ul className="space-y-2 text-black text-sm">
               <li>
-                <Link href="/about" className="hover:text-[#e0561b]">
-                  About
+                <Link href="/offgridsolar" className="hover:text-[#e0561b]">
+                  Off-Grid Solar
                 </Link>
               </li>
               <li>
-                <Link href="/team" className="hover:text-[#e0561b]">
-                  Leadership Team
+                <Link href="/ongridsolar" className="hover:text-[#e0561b]">
+                  On-Grid Solar
+                </Link>
+              </li>
+              <li>
+                <Link href="/commercial" className="hover:text-[#e0561b]">
+                  Commercial
+                </Link>
+              </li>
+              <li>
+                <Link href="/housingsocities" className="hover:text-[#e0561b]">
+                  Housing Societies
                 </Link>
               </li>
               <li>
                 <Link href="/service" className="hover:text-[#e0561b]">
-                  Our Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/projects" className="hover:text-[#e0561b]">
-                  Recent Projects
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-[#e0561b]">
-                  Contact
+                  Other Services
                 </Link>
               </li>
             </ul>
@@ -213,13 +213,37 @@ export default function Footer() {
 
           {/* Services */}
           <div className="flex flex-col items-center md:items-start">
-            <h4 className="font-bold text-black mb-4">Services</h4>
+            <h4 className="font-bold text-black mb-4">Quick Links</h4>
             <ul className="space-y-2 text-black text-sm">
-              <li>Acquisition</li>
-              <li>Solar Installation</li>
-              <li>Battery Materials</li>
-              <li>Solar Equipment</li>
-              <li>Charge Controllers</li>
+              <li>
+                {" "}
+                <Link href="/about" className="hover:text-[#e0561b]">
+                  {" "}
+                  About{" "}
+                </Link>
+              </li>
+              <li>
+                <Link href="/service" className="hover:text-[#e0561b]">
+                  {" "}
+                  Services{" "}
+                </Link>
+              </li>
+
+              <li>
+                {" "}
+                <Link href="/calculator" className="hover:text-[#e0561b]">
+                  {" "}
+                  Calculator{" "}
+                </Link>
+              </li>
+
+              <li>
+                {" "}
+                <Link href="/contact" className="hover:text-[#e0561b]">
+                  {" "}
+                  Contact{" "}
+                </Link>
+              </li>
             </ul>
           </div>
 
