@@ -124,7 +124,7 @@ const Slider: React.FC = () => {
         >
           Why choose{" "}
           <span className="text-[#F9820C]">Gayatri Construction Company</span>{" "}
-          for your construction projects
+          for your solar projects
         </motion.h2>
 
         {/* Features Grid */}

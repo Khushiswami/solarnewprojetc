@@ -77,8 +77,8 @@ const Timeline: React.FC = () => {
                 i % 2 === 1 ? "md:flex-row-reverse" : ""
               }`}
             >
-              {/* Marker */}
-              <div className="relative z-20 flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-[#03306D] bg-white/10 shadow-lg flex items-center justify-center font-bold text-lg text-black">
+              {/* Marker – now no border */}
+              <div className="relative z-20 flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-full bg-white shadow-lg flex items-center justify-center font-bold text-lg text-[#03306D]">
                 {step.number}
               </div>
 

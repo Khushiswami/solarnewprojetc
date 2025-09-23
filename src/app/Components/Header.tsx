@@ -2,46 +2,73 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import {
+  FaHome,
+  FaBuilding,
+  FaUsers,
+  FaSolarPanel,
+  FaBolt,
+} from "react-icons/fa";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  // Dropdown state
   const [dropdown, setDropdown] = useState<"offerings" | "services" | null>(
     null
   );
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  // Dropdown items
   const offerings = [
-    { name: "Home", href: "/home" },
-    { name: "Commercial", href: "/commercial" },
-    { name: "Housing Socities", href: "/offerings/maintenance" },
+    { name: "Home", href: "/home", icon: <FaHome className="inline mr-2" /> },
+    {
+      name: "Commercial",
+      href: "/commercial",
+      icon: <FaBuilding className="inline mr-2" />,
+    },
+    {
+      name: "Housing Societies",
+      href: "/housingsocities",
+      icon: <FaUsers className="inline mr-2" />,
+    },
   ];
 
   const services = [
-    { name: "Off Grid Solar", href: "/services/consultation" },
-    { name: "On Grid Solar", href: "/services/installation" },
+    {
+      name: "Off Grid Solar",
+      href: "/ongridsolar",
+      icon: <FaSolarPanel className="inline mr-2" />,
+    },
+    {
+      name: "On Grid Solar",
+      href: "/offgridsolar",
+      icon: <FaBolt className="inline mr-2" />,
+    },
   ];
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    const handleScroll = () => setScrolled(window.scrollY > 100);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "auto";
   }, [menuOpen]);
 
   return (
-    <header className="bg-white shadow-md fixed top-0 w-full z-50">
-      <div className="mx-auto  px-3 lg:px-8 md:px-7">
+    <header
+      className={`fixed top-0 w-full z-50 transition-colors duration-300 ${
+        scrolled ? "bg-white shadow-md" : "bg-transparent"
+      }`}
+    >
+      <div className="mx-auto px-3 lg:px-8 md:px-7">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" passHref>
               <Image
                 src="/logo.png"
-                alt="My Logo"
+                alt="Logo"
                 width={80}
                 height={20}
                 priority
@@ -51,25 +78,35 @@ export default function Header() {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8 items-center">
-            {/* Our Offering dropdown */}
+          <div
+            className={`hidden md:flex space-x-8 items-center ${
+              scrolled ? "text-black" : "text-white"
+            }`}
+          >
+            {/* Our Offering Dropdown */}
             <div
               className="relative"
               onMouseEnter={() => setDropdown("offerings")}
               onMouseLeave={() => setDropdown(null)}
             >
-              <button className="text-black hover:text-[#F9820C] font-medium text-[16px]">
+              <button className="hover:text-[#F9820C] font-medium text-[16px]">
                 Our Offering ▾
               </button>
               {dropdown === "offerings" && (
-                <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md">
+                <div
+                  className={`absolute left-0 mt-2 w-56 rounded-md shadow-lg ${
+                    scrolled
+                      ? "bg-white text-black"
+                      : "bg-black/90 text-white backdrop-blur-md"
+                  }`}
+                >
                   {offerings.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
-                      className="block px-4 py-2 hover:bg-gray-100 text-black hover:text-[#F9820C]"
+                      className={`block px-4 py-2 hover:bg-[#F9820C] hover:text-white`}
                     >
-                      {item.name}
+                      {item.icon} {item.name}
                     </Link>
                   ))}
                 </div>
@@ -79,29 +116,35 @@ export default function Header() {
             {/* About */}
             <Link
               href="/about"
-              className="text-black hover:text-[#F9820C] font-medium text-[16px]"
+              className="hover:text-[#F9820C] font-medium text-[16px]"
             >
               About Us
             </Link>
 
-            {/* Services dropdown */}
+            {/* Services Dropdown */}
             <div
               className="relative"
               onMouseEnter={() => setDropdown("services")}
               onMouseLeave={() => setDropdown(null)}
             >
-              <button className="text-black hover:text-[#F9820C] font-medium text-[16px]">
+              <button className="hover:text-[#F9820C] font-medium text-[16px]">
                 Services ▾
               </button>
               {dropdown === "services" && (
-                <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md">
+                <div
+                  className={`absolute left-0 mt-2 w-56 rounded-md shadow-lg ${
+                    scrolled
+                      ? "bg-white text-black"
+                      : "bg-black/90 text-white backdrop-blur-md"
+                  }`}
+                >
                   {services.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
-                      className="block px-4 py-2 hover:bg-gray-100 text-black hover:text-[#F9820C]"
+                      className={`block px-4 py-2 hover:bg-[#F9820C] hover:text-white`}
                     >
-                      {item.name}
+                      {item.icon} {item.name}
                     </Link>
                   ))}
                 </div>
@@ -111,13 +154,13 @@ export default function Header() {
             {/* Calculator */}
             <Link
               href="/calculator"
-              className="text-black hover:text-[#F9820C] font-medium text-[16px]"
+              className="hover:text-[#F9820C] font-medium text-[16px]"
             >
               Calculator
             </Link>
           </div>
 
-          {/* Desktop Contact button */}
+          {/* Desktop Contact Button */}
           <div className="hidden md:flex">
             <Link
               href="/contact"
@@ -128,17 +171,20 @@ export default function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          <div
+            className={`md:hidden flex items-center ${
+              scrolled ? "text-black" : "text-white"
+            }`}
+          >
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="text-black hover:text-[#F9820C] focus:outline-none"
+              className="focus:outline-none"
             >
               <svg
                 className="h-6 w-6"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 {menuOpen ? (
                   <path
@@ -161,51 +207,66 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-white shadow-md">
-          <div className="px-4 pt-4 pb-6 space-y-2">
-            <Link
-              href="/"
-              className="block text-black hover:text-[#F9820C] font-medium"
+      {/* Mobile Slide-in Menu */}
+      <div className={`md:hidden fixed inset-0 z-50 pointer-events-none`}>
+        {/* Overlay */}
+        <div
+          className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
+            menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0"
+          }`}
+          onClick={() => setMenuOpen(false)}
+        />
+
+        {/* Sliding Menu */}
+        <div
+          className={`absolute top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${
+            menuOpen ? "translate-x-0 pointer-events-auto" : "-translate-x-full"
+          }`}
+        >
+          <div className="px-4 pt-6 pb-4 space-y-4">
+            {/* Close Button */}
+            <button
               onClick={() => setMenuOpen(false)}
+              className="text-black mb-4 focus:outline-none"
             >
-              Home
-            </Link>
+              ✕
+            </button>
 
-            {/* Mobile Our Offering */}
-            <div>
-              <p className="font-medium text-black">Our Offering</p>
-              {offerings.map((item) => (
+            {/* Offering Items */}
+            {offerings.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="block py-2 text-black hover:text-[#F9820C]"
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.icon} {item.name}
+              </Link>
+            ))}
+
+            {/* Mobile Services Expandable */}
+            <button
+              className="w-full flex justify-between items-center py-2 text-black hover:text-[#F9820C] font-medium"
+              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+            >
+              <span>Services</span>
+              <span>{mobileServicesOpen ? "▲" : "▼"}</span>
+            </button>
+            {mobileServicesOpen &&
+              services.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block ml-4 text-black hover:text-[#F9820C]"
+                  className="block ml-4 py-2 text-black hover:text-[#F9820C]"
                   onClick={() => setMenuOpen(false)}
                 >
-                  {item.name}
+                  {item.icon} {item.name}
                 </Link>
               ))}
-            </div>
-
-            {/* Mobile Services */}
-            <div>
-              <p className="font-medium text-black">Services</p>
-              {services.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block ml-4 text-black hover:text-[#F9820C]"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
 
             <Link
               href="/calculator"
-              className="block text-gray-700 hover:text-[#F9820C] font-medium"
+              className="block text-black py-2 hover:text-[#F9820C]"
               onClick={() => setMenuOpen(false)}
             >
               Calculator
@@ -213,14 +274,14 @@ export default function Header() {
 
             <Link
               href="/contact"
-              className="block bg-[#F9820C] hover:bg-[#000000] text-white px-4 py-2 rounded-md font-medium text-center transition"
+              className="block bg-[#F9820C] hover:bg-[#000] text-white px-4 py-2 rounded-md mt-4 text-center font-medium"
               onClick={() => setMenuOpen(false)}
             >
               Contact
             </Link>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }

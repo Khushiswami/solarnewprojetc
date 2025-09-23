@@ -8,7 +8,18 @@ import Link from "next/link";
 import Counter from "../Components/Counter";
 import { motion, Variants } from "framer-motion";
 import Installation from "../Components/Installation";
-import Commercialfaqs from "../Components/Commercialfaqs";
+import {
+  FaSolarPanel,
+  FaBolt,
+  FaLeaf,
+  FaPiggyBank,
+  FaChartLine,
+  FaHandshake,
+  FaShieldAlt,
+  FaWarehouse,
+  FaGlobe,
+} from "react-icons/fa";
+import CommercialSolarFAQs from "../Components/Commercialfaqs";
 
 const Commercial = () => {
   const containerVariants: Variants = {
@@ -28,7 +39,62 @@ const Commercial = () => {
       transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] }, // TypeScript-compatible cubic-bezier
     },
   };
-
+  const features = [
+    {
+      title: "Lower Electricity Costs",
+      description:
+        "Slash high commercial tariffs by generating your own clean energy and cut monthly bills significantly.",
+      icon: <FaSolarPanel className="text-[#F9820C] text-3xl mb-4" />,
+    },
+    {
+      title: "Fast ROI & Long-Term Savings",
+      description:
+        "Recover your investment in just 3–5 years and enjoy free solar power for over two decades.",
+      icon: <FaPiggyBank className="text-[#F9820C] text-3xl mb-4" />,
+    },
+    {
+      title: "Energy Independence",
+      description:
+        "Reduce dependence on the grid or diesel generators and gain stable, predictable power costs.",
+      icon: <FaBolt className="text-[#F9820C] text-3xl mb-4" />,
+    },
+    {
+      title: "Green & Sustainable Image",
+      description:
+        "Demonstrate your commitment to sustainability and attract eco-conscious customers and investors.",
+      icon: <FaLeaf className="text-[#F9820C] text-3xl mb-4" />,
+    },
+    {
+      title: "Government Incentives",
+      description:
+        "Take advantage of subsidies, tax benefits, and net-metering policies to maximize savings.",
+      icon: <FaHandshake className="text-[#F9820C] text-3xl mb-4" />,
+    },
+    {
+      title: "Enhanced Property Value",
+      description:
+        "Transform unused rooftops into productive assets and increase your property’s valuation.",
+      icon: <FaWarehouse className="text-[#F9820C] text-3xl mb-4" />,
+    },
+    {
+      title: "Reliable Power Supply",
+      description:
+        "Enjoy uninterrupted energy with optional storage solutions and reduced exposure to outages.",
+      icon: <FaShieldAlt className="text-[#F9820C] text-3xl mb-4" />,
+    },
+    {
+      title: "Scalable & Modular",
+      description:
+        "Expand your system as your business grows, with minimal disruption to operations.",
+      icon: <FaChartLine className="text-[#F9820C] text-3xl mb-4" />,
+    },
+    {
+      title: "Global Impact",
+      description:
+        "Contribute to lowering carbon emissions and help build a cleaner planet for future generations.",
+      icon: <FaGlobe className="text-[#F9820C] text-3xl mb-4" />,
+    },
+  ];
   return (
     <>
       <Header />
@@ -84,16 +150,48 @@ const Commercial = () => {
         </motion.h2>
 
         <p className="text-center mx-auto text-gray-800 md:mx-10">
-          99 out of 100 commercial rooftops remain unused. Installing solar
-          panels with Gayatri Solar can reduce your electricity bills by over
-          70%. We provide customized rooftop solutions — from net-metered
-          systems to captive power plants — for all your energy needs.
+          Commercial rooftop solar refers to a solar power system installed on
+          the rooftops of business, industrial, or institutional buildings
+          (factories, offices, warehouses, hospitals, schools, malls, etc.)
+          instead of residential homes. 99 out of 100 commercial rooftops remain
+          unused. Installing solar panels with Gayatri Solar can reduce your
+          electricity bills by over 70%. We provide customized rooftop solutions
+          — from net-metered systems to captive power plants — for all your
+          energy needs.
         </p>
       </motion.section>
       <Installation />
+      {/* benfits of commercial */}
+      <section className="w-full bg-white py-12 px-6 md:px-16 lg:px-20">
+        <div className=" mx-auto text-center md:px-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-black mb-6">
+            Benefits of <span className="text-[#F9820C]">Commercial Solar</span>
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto mb-12">
+            Commercial rooftop solar helps businesses cut high electricity costs
+            while achieving long-term energy savings
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="p-6  hover:bg-gray-100 rounded-2xl shadow-md transition-all duration-300 flex flex-col items-center text-center"
+              >
+                {feature.icon}
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-black text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       <Counter />
       <Contact />
-      <Commercialfaqs />
+      <CommercialSolarFAQs />
       <Footer />
     </>
   );

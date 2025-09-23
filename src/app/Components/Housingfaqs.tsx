@@ -26,7 +26,7 @@ const faqData = [
   },
 ];
 
-export default function CommercialSolarFAQs() {
+export default function Housingfaqs() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (

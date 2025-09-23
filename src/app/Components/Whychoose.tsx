@@ -37,7 +37,7 @@ export default function WhyChoose() {
       >
         Why choose{" "}
         <span className="text-[#F9820C]">Gayatri Construction Company</span> for
-        your construction projects
+        your solar projects
       </motion.h2>
 
       {/* Features Grid */}

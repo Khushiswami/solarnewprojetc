@@ -13,6 +13,7 @@ import WhyChoose from "./Components/Whychoose";
 import Allservice from "./Components/Allservice";
 import Partners from "./Components/Partners";
 import Patners from "./Components/Partners";
+import Reviews from "./Components/Reviews";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <Whychoose />
       <Contact />
       <Partners />
+      <Reviews />
       <Faqs />
       <Footer />
     </>
