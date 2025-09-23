@@ -87,8 +87,8 @@ export default function Banner() {
           <div className="flex justify-center md:hidden">
             {/* Mobile: no animation */}
             <img
-              src="/about.jpg"
-              alt="EPACK Prefab Industrial Building"
+              src="/pg.jpg"
+              alt="soalr"
               className="rounded-md shadow-md w-full max-w-[600px] h-[300px] object-cover transform transition duration-500 ease-in-out hover:scale-105 hover:shadow-xl"
             />
           </div>
@@ -102,8 +102,8 @@ export default function Banner() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <img
-              src="/about.jpg"
-              alt="EPACK Prefab Industrial Building"
+              src="/pg.jpg"
+              alt="solar"
               className="rounded-md shadow-md w-full max-w-[600px] h-[400px] object-cover transform transition duration-500 ease-in-out hover:scale-105 hover:shadow-xl"
             />
           </motion.div>

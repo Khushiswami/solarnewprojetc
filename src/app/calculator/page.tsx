@@ -180,9 +180,9 @@ export default function Calculator() {
   return (
     <>
       <Header />
-      <section className="relative w-full h-96 md:h-[500px] bg-gray-800">
+      <section className="relative w-full h-96 md:h-[450px] bg-gray-800">
         <Image
-          src="/pg.jpg"
+          src="/ban6.jpg"
           alt="Services Banner"
           fill
           className="object-cover opacity-70"
@@ -196,11 +196,11 @@ export default function Calculator() {
           </p>
         </div>
       </section>
-      <section className="w-full px-6 py-12 bg-white mt-20">
+      <section className="w-full px-6 py-12 bg-white mt-10">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start">
           {/* Left Section */}
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#F9820C]">
               Calculate Your Solar Savings Now!
             </h2>
             <p className="text-gray-600 mt-2">

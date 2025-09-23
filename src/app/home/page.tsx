@@ -9,6 +9,8 @@ import Partners from "../Components/Partners";
 import Faqs from "../Components/Faqs";
 import Contact from "../Components/Contact";
 import Timeline from "../Components/Timeline";
+import Link from "next/link";
+
 // ✅ Define the slide type
 interface Slide {
   image: string;
@@ -35,17 +37,17 @@ const itemVariants: Variants = {
 
 const slides: Slide[] = [
   {
-    image: "/power.jpg",
+    image: "/banfour.jpg",
     title: "Clean Solar Energy",
     description: "Harness the power of the sun for your home and business.",
   },
   {
-    image: "/power.jpg",
+    image: "/banfour.jpg",
     title: "Save Money",
     description: "Lower your energy bills and enjoy renewable energy benefits.",
   },
   {
-    image: "/power.jpg",
+    image: "/banfour.jpg",
     title: "Sustainable Future",
     description: "Contribute to a greener planet by switching to solar power.",
   },
@@ -65,50 +67,41 @@ const Slider: React.FC = () => {
   return (
     <>
       <Header />
-      <div className="relative w-full h-[500px] md:h-[600px] overflow-hidden">
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === current ? "opacity-100" : "opacity-0"
-            }`}
+      <section
+        className="relative h-screen flex items-center"
+        style={{
+          backgroundImage: "url('/power.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/50" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-8 w-full">
+          {/* Animated container */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-left w-full max-w-xl sm:max-w-2xl"
           >
-            {/* Background Image */}
-            <Image
-              src={slide.image}
-              alt={slide.title}
-              fill
-              className="object-cover"
-              priority={index === 0}
-            />
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/40" />
-
-            {/* Text Content */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-              <h1 className="text-white text-3xl md:text-5xl font-bold">
-                {slide.title}
-              </h1>
-              <p className="text-white mt-4 text-base md:text-lg max-w-2xl">
-                {slide.description}
-              </p>
-            </div>
-          </div>
-        ))}
-
-        {/* Dots */}
-        <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex space-x-3">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrent(index)}
-              className={`w-3 h-3 rounded-full ${
-                index === current ? "bg-white" : "bg-gray-400"
-              }`}
-            ></button>
-          ))}
+            <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold mb-4">
+              Sustainable Future
+            </h1>
+            <p className="text-white text-base sm:text-lg md:text-md mb-6">
+              Contribute to a greener planet by switching to solar power.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-block bg-[#F9820C] hover:bg-[#000000] text-white px-6 py-3 rounded-md font-bold transition"
+            >
+              Get Started
+            </Link>
+          </motion.div>
         </div>
-      </div>
+      </section>
       {/* why choose us */}
       <motion.section
         className="max-w-6xl mx-auto px-4 py-16"

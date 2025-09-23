@@ -87,7 +87,7 @@ const HousingSocieties = () => {
       <section
         className="relative h-screen flex items-center"
         style={{
-          backgroundImage: "url('/banthree.jpg')",
+          backgroundImage: "url('/housing.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
