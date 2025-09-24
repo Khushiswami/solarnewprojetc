@@ -91,10 +91,10 @@ export default function Header() {
           <div className="flex-shrink-0">
             <Link href="/" passHref>
               <Image
-                src="/logo.png"
+                src="/main.png"
                 alt="Logo"
-                width={80}
-                height={30}
+                width={100}
+                height={25}
                 priority
                 className="cursor-pointer"
               />

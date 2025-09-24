@@ -151,9 +151,9 @@ export default function Footer() {
             <div className="flex items-center mb-1 justify-center md:justify-start">
               <Link href="/">
                 <Image
-                  src="/logo.png"
+                  src="/main.png"
                   alt="My Logo"
-                  width={110}
+                  width={120}
                   height={30}
                   priority
                 />
