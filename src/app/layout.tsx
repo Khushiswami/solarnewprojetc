@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   title: "GAYATRI SOLAR",
   description:
     "Gayatri Solar is one of India’s leading commercial solar installation company",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
